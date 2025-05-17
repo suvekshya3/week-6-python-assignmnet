@@ -1,0 +1,118 @@
+#Q1
+class Student:
+    def __init__(self, name, age, grades):
+        self.name = name
+        self.age = age
+        self.grades = grades
+
+    def average_grade(self):
+        return sum(self.grades) / len(self.grades)
+
+# Create and use
+s1 = Student("Aayush", 20, [80, 90, 85])
+s2 = Student("Bina", 19, [70, 75, 65])
+s3 = Student("Chirag", 21, [50, 40, 60])
+
+print(s1.name, "Average Grade:", s1.average_grade())
+print(s2.name, "Average Grade:", s2.average_grade())
+print(s3.name, "Average Grade:", s3.average_grade())
+
+#Q2
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def short_title(self):
+        return self.title[:10]
+
+# Create and use
+b1 = Book("Harry Potter and the Goblet of Fire", "J.K. Rowling")
+b2 = Book("Wings of Fire", "A.P.J. Abdul Kalam")
+b3 = Book("The Alchemist", "Paulo Coelho")
+
+print(b1.short_title())
+print(b2.short_title())
+print(b3.short_title())
+
+#Q3
+class StudentResult:
+    def __init__(self, name, age, avg_grade):
+        self.name = name
+        self.age = age
+        self.avg_grade = avg_grade
+
+    def has_passed(self):
+        return self.avg_grade >= 50
+
+r1 = StudentResult("Aayush", 20, 85)
+r2 = StudentResult("Bina", 19, 70)
+r3 = StudentResult("Chirag", 21, 48)
+
+print("Passed Students:")
+for r in [r1, r2, r3]:
+    if r.has_passed():
+        print(r.name)
+#Q4
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, name, price):
+        self.items.append({"name": name, "price": price})
+
+    def total_price(self):
+        total = 0
+        for item in self.items:
+            total += item["price"]
+        return total
+
+
+cart = ShoppingCart()
+cart.add_item("Apple", 50)
+cart.add_item("Mango", 100)
+cart.add_item("Banana", 30)
+cart.add_item("Milk", 80)
+cart.add_item("Bread", 60)
+
+print("Total Price:", cart.total_price())
+
+#Q5
+class TextAnalyzer:
+    def __init__(self, text):
+        self.text = text
+
+    def word_count(self):
+        words = self.text.split()
+        return len(words)
+
+text = "Python is very easy and fun to learn!"
+analyzer = TextAnalyzer(text)
+print("Word Count:", analyzer.word_count())
+
+#Q6
+import random
+
+class Playlist:
+    def __init__(self):
+        self.songs = []
+
+    def add_song(self, title, artist):
+        self.songs.append({"title": title, "artist": artist})
+
+    def shuffle(self):
+        random.shuffle(self.songs)
+
+# Create and use
+playlist = Playlist()
+playlist.add_song("Perfect", "Ed Sheeran")
+playlist.add_song("Let Her Go", "Passenger")
+playlist.add_song("Shape of You", "Ed Sheeran")
+playlist.add_song("Faded", "Alan Walker")
+playlist.add_song("On My Way", "Alan Walker")
+
+playlist.shuffle()
+
+print("Shuffled Songs:")
+for song in playlist.songs:
+    print(song["title"], "by", song["artist"])
